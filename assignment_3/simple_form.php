@@ -17,18 +17,18 @@ include __DIR__ . '/tpl/body_start.php';
 <?php
 if(empty($_GET['name']) && empty($_GET['residence'])){
     echo "<p>Please fill in the fields</p>";
-}else{ if($_GET['residence'] === 'Amsterdam'){
+}elseif($_GET['residence'] === 'Amsterdam'){
     $name= $_GET['name'];
-    $res= $_GET['residence'];
-    echo "<h1> Welcome $name!</h1>\n";
-    echo "<p> You're from the capital of the Netherlands!</p>";
-}else{
+    $res= $_GET['residence'];?>
+    <div><h1> Welcome <?php echo $name ?>!</h1><br>
+    <p> You're from the capital of the Netherlands!</p></div>
+<?php } else {
     $name= $_GET['name'];
-    $res= $_GET['residence'];
-    echo "<h1> Welcome $name!</h1>\n";
-    echo ("<p>You're from $res!</p>");
-}}
-?>
+    $res= $_GET['residence']; ?>
+    <div><h1> Welcome <?php echo $name ?>!</h1><br>
+        <p>You're from <?php echo $res ?>!</p></div>
+
+<?php } ?>
 
 <div class="col-md-12">
 <form action="simple_form.php" method="get">

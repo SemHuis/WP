@@ -1,10 +1,10 @@
 <?php
 if (isset($_POST['id'])){
-// Read articles
+
     $json_file = file_get_contents("data/articles.json");
     $articles = json_decode($json_file, true);
     $articles = array_reverse($articles);
-// Get article information
+
     $article_id = '';
     $article_title = '';
     $article_txt = '';

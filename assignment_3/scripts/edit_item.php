@@ -1,15 +1,15 @@
 <?php
 if (isset($_POST['submit'])) {
-// Read articles
+
     $json_file = file_get_contents("../data/articles.json");
     $articles = json_decode($json_file, true);
-// Get article key
+
     foreach($articles as $key => $value){
         if ($value['id'] == $_POST['article_id']){
             $article_key = $key;
         }
     }
-// Edit article
+
     $articles[$article_key] = [
         'id' => $_POST['article_id'],
         'date' => time(),
